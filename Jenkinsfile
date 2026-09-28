@@ -10,20 +10,20 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                bat 'py --version'
-                bat 'py -m pip install -r requirements.txt'
+                bat '"C:\\Users\\chait\\AppData\\Local\\Programs\\Python\\Launcher\\py.exe" --version'
+                bat '"C:\\Users\\chait\\AppData\\Local\\Programs\\Python\\Launcher\\py.exe" -m pip install -r requirements.txt'
             }
         }
 
         stage('Run Tests') {
             steps {
-                bat 'py -m pytest -q'
+                bat '"C:\\Users\\chait\\AppData\\Local\\Programs\\Python\\Launcher\\py.exe" -m pytest -q'
             }
         }
 
         stage('Build') {
             steps {
-                bat 'py app.py'
+                bat '"C:\\Users\\chait\\AppData\\Local\\Programs\\Python\\Launcher\\py.exe" app.py'
             }
         }
 
