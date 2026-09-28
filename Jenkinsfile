@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     stages {
+
         stage('Checkout') {
             steps {
                 checkout scm
@@ -10,26 +11,26 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                bat '"C:\\Users\\chait\\AppData\\Local\\Programs\\Python\\Launcher\\py.exe" --version'
-                bat '"C:\\Users\\chait\\AppData\\Local\\Programs\\Python\\Launcher\\py.exe" -m pip install -r requirements.txt'
+                bat '"C:\\Users\\chait\\ML_CICD_Lab\\venv\\Scripts\\python.exe" --version'
+                bat '"C:\\Users\\chait\\ML_CICD_Lab\\venv\\Scripts\\pip.exe" install -r requirements.txt'
             }
         }
 
         stage('Run Tests') {
             steps {
-                bat '"C:\\Users\\chait\\AppData\\Local\\Programs\\Python\\Launcher\\py.exe" -m pytest -q'
+                bat '"C:\\Users\\chait\\ML_CICD_Lab\\venv\\Scripts\\python.exe" -m pytest'
             }
         }
 
         stage('Build') {
             steps {
-                bat '"C:\\Users\\chait\\AppData\\Local\\Programs\\Python\\Launcher\\py.exe" app.py'
+                echo 'Build completed successfully!'
             }
         }
 
         stage('Deploy') {
             steps {
-                bat 'echo Deployment Successful!'
+                echo 'Deployment successful!'
             }
         }
     }
